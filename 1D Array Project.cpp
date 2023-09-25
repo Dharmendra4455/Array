@@ -15,7 +15,7 @@ int insertnew(int arr[],int data,int n,int index){
 		n++;
 	
 	
-	if(index>n&&index>=0){
+	if(index>n||index<0){
 	printf("Please Select Valid Index No.s\n\n");
 	printf("Insertion Fail!\n\n");
 }
