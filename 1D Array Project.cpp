@@ -46,11 +46,17 @@ else{
 }
 int del(int arr[],int n,int index){
 	int i;
+	if(n>=0){
 	for(i=index;i<n;i++){
 		arr[i]=arr[i+1];
 	}
 	n--;
 	printf("Deletion of Data Successful Done.\n\n");
+	}
+	else{
+       printf("Array is Empty");
+      printf("Deletion of Data fail!.\n\n");
+	}
 	return n;
 }
 void search(int arr[],int n,int data){
