@@ -6,12 +6,14 @@ int insertnew(int arr[],int data,int n,int index){
 			arr[i+1]=arr[i];
 		}
 		arr[index]=data;
+		printf(" Successfully Inserted New data\n");
 		}
-	if(index==n)	
+	if(index==n){	
 		arr[index]=data;
-		
+		printf(" Successfully Inserted New data\n");
+	}
 		n++;
-	printf(" Successfully Inserted New data\n");
+	
 	
 	if(index>n&&index>=0){
 	printf("Please Select Valid Index No.s\n\n");
