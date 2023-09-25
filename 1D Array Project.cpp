@@ -8,14 +8,14 @@ int insertnew(int arr[],int data,int n,int index){
 		arr[index]=data;
 		printf(" Successfully Inserted New data\n");
 		}
-	if(index==n){	
+	if(index==n){
+		
 		arr[index]=data;
-		printf(" Successfully Inserted New data\n");
-	}
+	printf(" Successfully Inserted New data\n");}	
 		n++;
 	
 	
-	if(index>n||index<0){
+	if(index>n&&index<0){
 	printf("Please Select Valid Index No.s\n\n");
 	printf("Insertion Fail!\n\n");
 }
@@ -46,17 +46,11 @@ else{
 }
 int del(int arr[],int n,int index){
 	int i;
-	if(n>=0){
 	for(i=index;i<n;i++){
 		arr[i]=arr[i+1];
 	}
 	n--;
 	printf("Deletion of Data Successful Done.\n\n");
-	}
-	else{
-       printf("Array is Empty");
-      printf("Deletion of Data fail!.\n\n");
-	}
 	return n;
 }
 void search(int arr[],int n,int data){
@@ -109,26 +103,28 @@ while(i<=n){
 }
 }
 void min(int arr[],int n){
-	int k=arr[0],i;
+	int k=arr[0],i,p=0;
 	for(i=1;i<n;i++){
 		if(k>arr[i]){
 			k=arr[i];
+			p=i;
 		}
 	}
 	printf("OUTPUT:-\n\n");
 	printf("MINIMUM NUMBER: %d\n",k);
-	printf("INDEX: %d\n",i);
+	printf("INDEX: %d\n",p);
 }
 void max(int arr[],int n){
-	int k=arr[0],i;
+	int k=arr[0],i,p;
 	for(i=1;i<n;i++){
 		if(k<arr[i]){
 			k=arr[i];
+			p=i;
 		}
 	}
 	printf("OUTPUT:-\n\n");
 	printf("MAXIMUM NUMBER: %d\n",k);
-	printf("INDEX: %d\n",i);
+	printf("INDEX: %d\n",p);
 }
 void traverse(int arr[],int n){
 	int i;
@@ -136,7 +132,7 @@ void traverse(int arr[],int n){
 	for(i=0;i<n;i++)
 	printf(" %d ",arr[i]);
 }
-main(){
+int main(){
 int arr[100]={1,2,3,4,5,6,7,8,9,0},i,n=10,choice=1,data,index,press,index1,index2,chance=3;
 while(choice !=0 && chance>0){
 	printf("\n");
@@ -201,18 +197,28 @@ while(choice !=0 && chance>0){
    	case 3:{
    		 int tries=3;
    		while(tries>0){
-   		printf("Enter Index no.s for new data : \n\n");
+   		printf("Enter Index no.s for delete the data : \n\n");
    		scanf("%d",&index);
-   			if(index<=n&&index>=0){
+   			if(index<=n&&index>=0&&n!=0){
    		     n=del(arr,n,index);
    		     break;}
-   		     else{tries--;
+   		     else{
+				if(n==0){
+					printf("Array is Empty!\n\n");
+					printf("Deletion of Data Fail!\n\n");
+					break;
+				}
+				else{
+				
+				tries--;
 				if(tries>0)
 		   printf("\nPlease Select a Valid Index Number\n\n");
 		   else
-		   printf("\nNo more tries!!\n\n");}}
+		   printf("\nNo more tries!!\n\n");}
+		   }
 		printf("................................................................................\n");
-   		break;}
+   		}
+		   break;}
 	case 4:
    		printf("Enter data for Search :\n");
    		scanf("%d",&data);
@@ -280,4 +286,5 @@ printf("No more tries\n\n");
 printf("................................................................................\n");}
 else
 printf("       * * * * * * * * * * T H A N K Y O U  * * * * * * * * * * * * * * * * * *\n\n");
+return 0;
 }
